@@ -1,0 +1,397 @@
+<!-- README: Arquivos gerados abaixo. Copie cada bloco (entre os separadores) para arquivos separados no seu projeto.
+Arquivos:
+- index.html
+- anatomia.html
+- biosseguranca.html
+- procedimentos.html
+- instrumentos.html
+- assets/style.css
+- assets/icons.svg (símbolo SVG para uso via <use>)
+
+Cada página é responsiva, com menu de categorias, cores modernas e ícones personalizados em SVG. -->
+
+/* ---------------------- assets/style.css ---------------------- */
+<!-------------------------------------------------------------->
+/* Salve como: assets/style.css */
+:root{
+  --bg:#0f1724; --card:#0b1220; --muted:#94a3b8; --accent1:#06b6d4; --accent2:#7c3aed; --accent3:#06d6a0;
+  --glass: rgba(255,255,255,0.03);
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;color:#e6eef8;background:linear-gradient(180deg,#071029 0%, #0b1220 100%)}
+.container{max-width:1100px;margin:0 auto;padding:20px}
+.site-header{background:linear-gradient(90deg,var(--accent2),var(--accent1));padding:18px 0}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{display:flex;gap:12px;align-items:center}
+.brand .logo{width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,var(--accent2),var(--accent1));display:grid;place-items:center;font-weight:700}
+.brand h1{font-size:20px;margin:0}
+.nav{display:flex;gap:18px}
+.nav a{color:rgba(255,255,255,0.95);text-decoration:none;padding:8px 12px;border-radius:10px;font-weight:600}
+.nav a.active, .nav a:hover{background:rgba(255,255,255,0.06)}
+.menu-toggle{display:none;font-size:26px;color:white}
+.main{display:grid;grid-template-columns:1fr 320px;gap:24px;margin-top:22px}
+.card{background:var(--card);padding:18px;border-radius:14px;box-shadow:0 6px 22px rgba(2,6,23,0.6)}
+.post-title{font-size:22px;margin:0 0 8px}
+.lead{color:var(--muted);margin:0 0 12px}
+.section-hero svg{width:100%;height:220px;border-radius:12px;display:block;margin-bottom:12px}
+.sidebar{position:sticky;top:20px}
+.category{display:flex;align-items:center;gap:12px;padding:10px;border-radius:10px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);margin-bottom:10px}
+.category svg{width:40px;height:40px}
+.footer{margin-top:36px;text-align:center;color:var(--muted);font-size:14px;padding:28px 0}
+/* responsive */
+@media(max-width:980px){
+  .main{grid-template-columns:1fr}
+  .nav{display:none}
+  .menu-toggle{display:block}
+  .nav.mobile{display:flex;flex-direction:column;background:linear-gradient(90deg,var(--accent2),var(--accent1));position:absolute;left:0;right:0;top:74px;padding:12px;gap:8px;border-bottom-left-radius:8px;border-bottom-right-radius:8px}
+}
+
+/* utilities */
+.tag{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,0.04);font-weight:700}
+
+/* article content */
+.article p{color:var(--muted);line-height:1.6}
+.article h3{color:white}
+
+/* subtle hover */
+.card .meta{color:var(--muted);font-size:13px}
+
+/* icons fallback */
+svg.icon{display:block;fill:currentColor}
+
+/* end style */
+
+/* ---------------------- assets/icons.svg ---------------------- */
+<!-------------------------------------------------------------->
+<!-- Salve como: assets/icons.svg -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <symbol id="icon-anatomia" viewBox="0 0 24 24">
+    <path d="M12 2c-1.1 0-2 .9-2 2v1H8a2 2 0 0 0-2 2v1H4v2h2v1a2 2 0 0 0 2 2h2v1a2 2 0 0 0 2 2h0a2 2 0 0 0 2-2v-1h2a2 2 0 0 0 2-2v-1h2V8h-2V7a2 2 0 0 0-2-2h-2V4a2 2 0 0 0-2-2h-2z"/>
+  </symbol>
+  <symbol id="icon-biosseg" viewBox="0 0 24 24">
+    <path d="M12 2a7 7 0 0 0-7 7v6a5 5 0 0 0 5 5h4a5 5 0 0 0 5-5V9a7 7 0 0 0-7-7z"/>
+  </symbol>
+  <symbol id="icon-proc" viewBox="0 0 24 24">
+    <path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zm0-10v2h14V7H7z"/>
+  </symbol>
+  <symbol id="icon-instr" viewBox="0 0 24 24">
+    <path d="M12 2l2 4h4l-3 3 1 5-5-3-5 3 1-5-3-3h4l2-4z"/>
+  </symbol>
+</svg>
+
+/* ---------------------- index.html ---------------------- */
+<!-------------------------------------------------------------->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Blog ASB — Início</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <div class="logo">ASB</div>
+        <div>
+          <h1>Blog ASB</h1>
+          <div style="font-size:12px;color:rgba(255,255,255,0.9)">Auxiliar de Saúde Bucal — Conteúdo Educativo</div>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a href="index.html" class="active">Início</a>
+        <a href="anatomia.html">Anatomia</a>
+        <a href="biosseguranca.html">Biossegurança</a>
+        <a href="procedimentos.html">Procedimentos</a>
+        <a href="instrumentos.html">Instrumentos</a>
+      </nav>
+
+      <div class="menu-toggle">☰</div>
+    </div>
+  </header>
+
+  <main class="container main">
+    <section>
+      <article class="card article">
+        <h2 class="post-title">Boas-vindas ao Blog ASB</h2>
+        <p class="lead">Conteúdo organizado por categorias para ajudar estudantes e profissionais do Auxílio de Saúde Bucal.</p>
+
+        <div class="section-hero">
+          <!-- hero SVG gerado -->
+          <svg viewBox="0 0 1200 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ilustração de suporte ASB">
+            <defs>
+              <linearGradient id="h1" x1="0" x2="1"><stop offset="0" stop-color="#7c3aed"/><stop offset="1" stop-color="#06b6d4"/></linearGradient>
+            </defs>
+            <rect width="1200" height="400" rx="18" fill="url(#h1)" />
+            <text x="60" y="120" fill="white" font-size="48" font-weight="700">Blog ASB — Aprenda e Pratique</text>
+            <text x="60" y="170" fill="rgba(255,255,255,0.9)" font-size="20">Material didático sobre anatomia, biossegurança, instrumentação e rotina clínica.</text>
+          </svg>
+        </div>
+
+        <p>Escolha uma categoria na lateral para ver artigos, imagens e resumos curtos. As páginas são responsivas e incluem ícones personalizados para facilitar a navegação.</p>
+      </article>
+    </section>
+
+    <aside class="sidebar">
+      <div class="card">
+        <h3 style="margin-top:0">Categorias</h3>
+        <a class="category" href="anatomia.html"><svg class="icon" aria-hidden><use xlink:href="#icon-anatomia"/></svg><div>Anatomia</div></a>
+        <a class="category" href="biosseguranca.html"><svg class="icon" aria-hidden><use xlink:href="#icon-biosseg"/></svg><div>Biossegurança</div></a>
+        <a class="category" href="procedimentos.html"><svg class="icon" aria-hidden><use xlink:href="#icon-proc"/></svg><div>Procedimentos</div></a>
+        <a class="category" href="instrumentos.html"><svg class="icon" aria-hidden><use xlink:href="#icon-instr"/></svg><div>Instrumentos</div></a>
+      </div>
+    </aside>
+  </main>
+
+  <footer class="container footer">© <span id="ano"></span> — Blog ASB</footer>
+  <script>
+    document.getElementById('ano').textContent=new Date().getFullYear();
+    const toggle=document.querySelector('.menu-toggle');
+    const nav=document.querySelector('.nav');
+    toggle.addEventListener('click',()=>{
+      nav.classList.toggle('mobile');
+    });
+  </script>
+  <!-- Incluir icons.svg no topo do seu HTML ou como arquivo separado (assets/icons.svg) -->
+</body>
+</html>
+
+/* ---------------------- anatomia.html ---------------------- */
+<!-------------------------------------------------------------->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Anatomia — Blog ASB</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <!-- include icons.svg here (copie o conteúdo de assets/icons.svg para o topo do arquivo) -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand"><div class="logo">ASB</div><div><h1>Anatomia</h1><div style="font-size:12px;color:rgba(255,255,255,0.9)">Cabeça, pescoço e estruturas dentárias</div></div></div>
+      <nav class="nav">
+        <a href="index.html">Início</a>
+        <a href="anatomia.html" class="active">Anatomia</a>
+        <a href="biosseguranca.html">Biossegurança</a>
+        <a href="procedimentos.html">Procedimentos</a>
+        <a href="instrumentos.html">Instrumentos</a>
+      </nav>
+      <div class="menu-toggle">☰</div>
+    </div>
+  </header>
+  <main class="container main">
+    <section>
+      <article class="card article">
+        <h2 class="post-title">Anatomia de Cabeça, Pescoço e Dentes</h2>
+        <p class="lead">Resumo das estruturas essenciais que o ASB deve conhecer.</p>
+
+        <!-- Ilustração anatômica simplificada (SVG gerado) -->
+        <svg viewBox="0 0 1000 360" xmlns="http://www.w3.org/2000/svg">
+          <defs><linearGradient id="a1" x1="0" x2="1"><stop offset="0" stop-color="#06d6a0"/><stop offset="1" stop-color="#118ab2"/></linearGradient></defs>
+          <rect width="1000" height="360" rx="14" fill="url(#a1)" />
+          <g transform="translate(36,36)" fill="white">
+            <rect x="0" y="0" width="240" height="120" rx="10" fill="rgba(255,255,255,0.12)" />
+            <text x="270" y="40" font-size="28" font-weight="700">Maxila e Mandíbula</text>
+            <text x="270" y="80" font-size="16">Osso fixo e osso móvel — base do posicionamento dentário.</text>
+          </g>
+        </svg>
+
+        <div class="article">
+          <h3>Ossos e Músculos</h3>
+          <p>Maxila, mandíbula, músculos da mastigação (masseter, temporal, pterigoideos) e a ATM são estruturas que influenciam procedimentos odontológicos.</p>
+
+          <h3>Dentes — Estruturas</h3>
+          <p>Esmalte, dentina e polpa; faces dentais (mesial, distal, oclusal, vestibular, lingual) — úteis para registro clínico.</p>
+        </div>
+      </article>
+    </section>
+
+    <aside class="sidebar">
+      <div class="card">
+        <h3>Mais em Anatomia</h3>
+        <p class="meta">Tabela de dentes, nomenclatura e dicas para identificação rápida.</p>
+      </div>
+    </aside>
+  </main>
+  <footer class="container footer">© <span id="ano2"></span> — Blog ASB</footer>
+  <script>document.getElementById('ano2').textContent=new Date().getFullYear();const toggle=document.querySelector('.menu-toggle');const nav=document.querySelector('.nav');toggle.addEventListener('click',()=>{nav.classList.toggle('mobile');});</script>
+</body>
+</html>
+
+/* ---------------------- biosseguranca.html ---------------------- */
+<!-------------------------------------------------------------->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Biossegurança — Blog ASB</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <!-- include assets/icons.svg here -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand"><div class="logo">ASB</div><div><h1>Biossegurança</h1><div style="font-size:12px;color:rgba(255,255,255,0.9)">EPIs, esterilização e descarte de resíduos</div></div></div>
+      <nav class="nav">
+        <a href="index.html">Início</a>
+        <a href="anatomia.html">Anatomia</a>
+        <a href="biosseguranca.html" class="active">Biossegurança</a>
+        <a href="procedimentos.html">Procedimentos</a>
+        <a href="instrumentos.html">Instrumentos</a>
+      </nav>
+      <div class="menu-toggle">☰</div>
+    </div>
+  </header>
+  <main class="container main">
+    <section>
+      <article class="card article">
+        <h2 class="post-title">Princípios de Biossegurança</h2>
+        <p class="lead">Medidas para proteção de profissionais, pacientes e do ambiente de trabalho.</p>
+
+        <svg viewBox="0 0 1000 300" xmlns="http://www.w3.org/2000/svg">
+          <defs><linearGradient id="b1" x1="0" x2="1"><stop offset="0" stop-color="#06b6d4"/><stop offset="1" stop-color="#7c3aed"/></linearGradient></defs>
+          <rect width="1000" height="300" rx="14" fill="url(#b1)" />
+          <text x="36" y="80" fill="white" font-size="28" font-weight="700">EPIs & Esterilização</text>
+          <text x="36" y="120" fill="rgba(255,255,255,0.9)" font-size="16">Luvas, máscaras, óculos, aventais e autoclave — passos obrigatórios.</text>
+        </svg>
+
+        <div class="article">
+          <h3>Fluxo de Esterilização</h3>
+          <p>Lavagem, secagem, embalagem, autoclavagem e armazenamento. Use indicadores químicos e biológicos para monitorar ciclos.</p>
+
+          <h3>Resíduos e NR-32</h3>
+          <p>Classificação: perfurocortantes, infectantes e comuns. Destinação adequada conforme legislação vigente.</p>
+        </div>
+      </article>
+    </section>
+
+    <aside class="sidebar">
+      <div class="card">
+        <h3>Dicas Rápidas</h3>
+        <p class="meta">Trocar EPIs entre pacientes; checar validade de esterilização; manter checklist diário.</p>
+      </div>
+    </aside>
+  </main>
+  <footer class="container footer">© <span id="ano3"></span> — Blog ASB</footer>
+  <script>document.getElementById('ano3').textContent=new Date().getFullYear();const toggle=document.querySelector('.menu-toggle');const nav=document.querySelector('.nav');toggle.addEventListener('click',()=>{nav.classList.toggle('mobile');});</script>
+</body>
+</html>
+
+/* ---------------------- procedimentos.html ---------------------- */
+<!-------------------------------------------------------------->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Procedimentos — Blog ASB</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <!-- include assets/icons.svg here -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand"><div class="logo">ASB</div><div><h1>Procedimentos</h1><div style="font-size:12px;color:rgba(255,255,255,0.9)">Assistência clínica: restauração, endo e cirurgia</div></div></div>
+      <nav class="nav">
+        <a href="index.html">Início</a>
+        <a href="anatomia.html">Anatomia</a>
+        <a href="biosseguranca.html">Biossegurança</a>
+        <a href="procedimentos.html" class="active">Procedimentos</a>
+        <a href="instrumentos.html">Instrumentos</a>
+      </nav>
+      <div class="menu-toggle">☰</div>
+    </div>
+  </header>
+  <main class="container main">
+    <section>
+      <article class="card article">
+        <h2 class="post-title">Assistência durante Procedimentos</h2>
+        <p class="lead">Como o ASB organiza a bandeja, auxilia e mantém o campo operatório protegido.</p>
+
+        <svg viewBox="0 0 1000 320" xmlns="http://www.w3.org/2000/svg">
+          <defs><linearGradient id="c1" x1="0" x2="1"><stop offset="0" stop-color="#f97316"/><stop offset="1" stop-color="#ef4444"/></linearGradient></defs>
+          <rect width="1000" height="320" rx="14" fill="url(#c1)" />
+          <text x="36" y="80" fill="white" font-size="28" font-weight="700">Bandeja & Assistência</text>
+          <text x="36" y="120" fill="rgba(255,255,255,0.9)" font-size="16">Organização, passo a passo, instrumentos mais usados em cada procedimento.</text>
+        </svg>
+
+        <div class="article">
+          <h3>Restaurações e Endodontia</h3>
+          <p>Auxiliar com passagem de instrumentos, sucção e troca de brocas. Preparar materiais restauradores e manter isolamento absoluto quando solicitado.</p>
+
+          <h3>Cirurgias</h3>
+          <p>Preparar campo estéril, instrumentos cirúrgicos e auxiliar em pressão hemostática, sutura e controle de materiais perfurocortantes.</p>
+        </div>
+      </article>
+    </section>
+
+    <aside class="sidebar">
+      <div class="card"><h3>Checklist</h3><p class="meta">Instrumentos, materiais, EPIs e documentação do paciente.</p></div>
+    </aside>
+  </main>
+  <footer class="container footer">© <span id="ano4"></span> — Blog ASB</footer>
+  <script>document.getElementById('ano4').textContent=new Date().getFullYear();const toggle=document.querySelector('.menu-toggle');const nav=document.querySelector('.nav');toggle.addEventListener('click',()=>{nav.classList.toggle('mobile');});</script>
+</body>
+</html>
+
+/* ---------------------- instrumentos.html ---------------------- */
+<!-------------------------------------------------------------->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Instrumentos — Blog ASB</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <!-- include assets/icons.svg here -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand"><div class="logo">ASB</div><div><h1>Instrumentos</h1><div style="font-size:12px;color:rgba(255,255,255,0.9)">Organização, esterilização e uso correto</div></div></div>
+      <nav class="nav">
+        <a href="index.html">Início</a>
+        <a href="anatomia.html">Anatomia</a>
+        <a href="biosseguranca.html">Biossegurança</a>
+        <a href="procedimentos.html">Procedimentos</a>
+        <a href="instrumentos.html" class="active">Instrumentos</a>
+      </nav>
+      <div class="menu-toggle">☰</div>
+    </div>
+  </header>
+  <main class="container main">
+    <section>
+      <article class="card article">
+        <h2 class="post-title">Instrumentação: categorias e cuidados</h2>
+        <p class="lead">Instrumentos de exame, corte, inserção e cirúrgicos — identificação e manutenção.</p>
+
+        <svg viewBox="0 0 1000 320" xmlns="http://www.w3.org/2000/svg">
+          <defs><linearGradient id="d1" x1="0" x2="1"><stop offset="0" stop-color="#7c3aed"/><stop offset="1" stop-color="#06b6d4"/></linearGradient></defs>
+          <rect width="1000" height="320" rx="14" fill="url(#d1)" />
+          <text x="36" y="80" fill="white" font-size="28" font-weight="700">Instrumentos e Esterilização</text>
+          <text x="36" y="120" fill="rgba(255,255,255,0.9)" font-size="16">Manutenção, inspeção e ciclo de autoclave.</text>
+        </svg>
+
+        <div class="article">
+          <h3>Cuidados após o uso</h3>
+          <p>Lavar, escovar, lubrificar (peças rotatórias), embalar e autoclavar. Inspecionar desgaste e trocar quando necessário.</p>
+
+          <h3>Materiais restauradores</h3>
+          <p>Resinas, ionômeros e amálgama — preparo, manipulação e descarte correto de sobras.</p>
+        </div>
+      </article>
+    </section>
+
+    <aside class="sidebar"><div class="card"><h3>Ferramentas</h3><p class="meta">Listas de instrumentos para cada procedimento padrão.</p></div></aside>
+  </main>
+  <footer class="container footer">© <span id="ano5"></span> — Blog ASB</footer>
+  <script>document.getElementById('ano5').textContent=new Date().getFullYear();const toggle=document.querySelector('.menu-toggle');const nav=document.querySelector('.nav');toggle.addEventListener('click',()=>{nav.classList.toggle('mobile');});</script>
+</body>
+</html>
+
+<!-- FIM DOS ARQUIVOS -->
